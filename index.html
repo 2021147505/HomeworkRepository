@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Internet Programming Assiment 1</title>
+    <style>
+        .center {
+            text-align: center;
+        }
+        table {
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 class="center">좋아하는 영화 Top 3</h1>
+        <h3 class="center">2021147505 컴퓨터과학과 이경우</h3>
+    </header>
+
+    <p>제가 좋아하는 영화들은 다음과 같습니다.</p>
+    <ul>
+        <li>Toy Story</li>
+        <li>Jumanji</li>
+        <li>Grumpier Old Men</li>
+        <li>Sudden Death</li>
+        <li>Sense and Sensibility</li>
+    </ul>
+
+    <p class="center">이 중 가장 좋아하는 영화는 다음의 영화들입니다. 제목을 클릭하면 설명 페이지로 연결됩니다.</p>
+    
+    <table id = "table" border="1">
+        <caption>표 1. 좋아하는 영화 Top 3</caption>
+        <thead>
+            <tr>
+                <th rowspan="2">순위</th>
+                <th colspan="3">영화 정보</th>
+                <tr>
+                    <th>제목</th>
+                    <th>포스터</th>
+                    <th>명대사</th>
+                </tr>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td><a href="https://namu.wiki/w/%EC%82%AC%EB%B8%8C%EB%A6%AC%EB%82%98(%EC%98%81%ED%99%94)">Sabrina</a></td>
+                <td><img src="./사브리나.jpg" alt="./사브리나.jpg" width="200" height="300"></td>
+                <td><em>You are cordially invited to the most surprising merger of the year.</em></td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td><a href="https://namu.wiki/w/%EC%A5%AC%EB%A7%8C%EC%A7%80">Jumanji</a></td>
+                <td><img src="./쥬만지.jpg" alt="./쥬만지.jpg" width="200" height="300"></td>
+                <td><em>Roll the dice and unleash the excitement!</em></td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td><a href="https://namu.wiki/w/%EC%9D%B4%EC%84%B1%EA%B3%BC%20%EA%B0%90%EC%84%B1">Sense and Sensibility</a></td>
+                <td><img src="./이성과 감성.jpg" alt="./이성과 감성.jpg" width="200" height="300"></td>
+                <td><em>Lose your heart and come to your senses.</em></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
