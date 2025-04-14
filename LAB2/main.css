@@ -1,0 +1,80 @@
+/* background */
+body {
+    font-family: Arial, sans-serif;
+}
+
+/* header */
+h1 {
+    text-align: center; 
+}
+
+/* nav */
+nav {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+nav a {
+    margin: 0 10px;
+    color: #007bff;
+}
+
+nav a:hover {
+    text-decoration: underline;
+    color: #5f0057;
+}
+
+/* form */
+form {
+    width: 400px; 
+    margin: 20px auto; 
+    padding: 20px; 
+    border: 3px solid black; 
+    border-radius: 10px;
+    background-color: #ffffff; 
+}
+
+/* label */
+form label {
+    margin-bottom: 5px;
+    font-size: 15px; 
+}
+
+/* input, select */
+form input, form select {
+    padding: 10px;
+    border: 1px solid #000000; 
+    border-radius: 5px; 
+}
+
+/* submit button */
+.submit {
+    width: 100px;
+    height: 50px;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px; 
+    border: none; 
+    background-color: #007bff; 
+    color: white;
+}
+.submit:hover {
+    color: #000000;
+}
+
+/* reset button */
+.reset {
+    width: 100px;
+    height: 50px;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px; 
+    border: none; 
+    background-color: #ff3700; 
+    color: white;
+}
+
+.reset:hover {
+    color: #000000;
+}
+
