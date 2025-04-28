@@ -6,7 +6,10 @@
   
   /* 페이지 크기 제한 */
   .container {
-    max-width: 1020px;
+    width: 100%;
+    max-width: 1010px;
+    display: flex;
+    flex-direction: column;
     margin: 0 auto;
   }
   
@@ -38,15 +41,35 @@
   
   .navigation a {
     color: white;
-    margin-left: 20px;
+    margin-left: 40px;
     text-decoration: none;
   }
   
   /* 메인 콘텐츠 */
+  .main {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .discription {
+    flex-direction: column;
+  }
+
+  .rank {
+    width: 100%;
+    white-space: nowrap; 
+    overflow: hidden;
+}
+
+  .content {
+    display: flex;
+    flex-direction: column;
+  }
   .movie-section {
     display: flex;
+    flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: space-around;
     padding: 20px 0;
   }
   
@@ -84,7 +107,6 @@
     opacity: 1;
   }
   
-  /* 미디어 쿼리 */
   @media (max-width: 480px) {
     .movie-card {
       width: 100%;
@@ -120,72 +142,84 @@
     }
   }
 
+  /*information*/
+  .information {
+    display: flex;
+    flex-direction: column;
+  }
 
-/* signup, login */
-/* header */
-.header {
-  text-align: center; 
-}
+  /* signup, login */
+  /* header */
+  .header {
+    text-align: center; 
+  }
 
-/* nav */
-nav {
-  text-align: center;
-  margin-bottom: 20px;
-}
+  /* nav */
+  nav {
+    text-align: center;
+    margin-bottom: 20px;
+  }
 
-nav a {
-  margin: 0 10px;
-  color: #007bff;
-}
+  nav a {
+    margin: 0 10px;
+    color: #007bff;
+  }
 
-nav a:hover {
-  text-decoration: underline;
-  color: #4c83e9;
-}
+  nav a:hover {
+    text-decoration: underline;
+    color: #4c83e9;
+  }
 
-/* form */
-form {
-  width: 400px; 
-  margin: 20px auto; 
-  padding: 20px; 
-  border: 3px solid black; 
-  border-radius: 10px;
-  background-color: #ffffff; 
-}
+  /* form */
+  form {
+    width: 400px; 
+    margin: 20px auto; 
+    padding: 20px; 
+    border: 3px solid black; 
+    border-radius: 10px;
+    background-color: #ffffff; 
+  }
 
-/* label */
-form label {
-  margin-bottom: 5px;
-  font-size: 15px; 
-}
+  /* label */
+  form label {
+    margin-bottom: 5px;
+    font-size: 15px; 
+  }
 
-/* submit button */
-.submit {
-  width: 100px;
-  height: 50px;
-  padding: 10px;
-  font-size: 16px;
-  border-radius: 5px; 
-  border: none; 
-  background-color: #007bff; 
-  color: white;
-}
-.submit:hover {
-  color: #000000;
-}
+  /* submit button */
+  .submit {
+    width: 100px;
+    height: 50px;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px; 
+    border: none; 
+    background-color: #007bff; 
+    color: white;
+  }
+  .submit:hover {
+    color: #000000;
+  }
 
-/* reset button */
-.reset {
-  width: 100px;
-  height: 50px;
-  padding: 10px;
-  font-size: 16px;
-  border-radius: 5px; 
-  border: none; 
-  background-color: #ff3700; 
-  color: white;
-}
+  /* reset button */
+  .reset {
+    width: 100px;
+    height: 50px;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px; 
+    border: none; 
+    background-color: #ff3700; 
+    color: white;
+  }
 
-.reset:hover {
-  color: #000000;
-}
+  .reset:hover {
+    color: #000000;
+  }
+
+  hr {
+    border: none;
+    height: 2px;
+    background: #333;   /* 진한 색으로 변경 */
+    margin: 10px 0;
+  }
