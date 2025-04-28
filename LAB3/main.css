@@ -1,0 +1,190 @@
+
+  body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f5f5f5;
+  }
+  
+  /* 페이지 크기 제한 */
+  .container {
+    max-width: 1020px;
+    margin: 0 auto;
+  }
+  
+  /*헤더 애니메이션션*/
+  .header-slide h1 {
+    animation-name: slideIn;
+    animation-duration: 2s;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+  
+  @keyframes slideIn {
+    from {
+      transform: translateX(100%);
+    }
+    to {
+      transform: translateX(0%);
+    }
+  }
+  
+  /* 네비게이션 바 */
+  .navigation {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    background-color: #333;
+    padding: 10px;
+  }
+  
+  .navigation a {
+    color: white;
+    margin-left: 20px;
+    text-decoration: none;
+  }
+  
+  /* 메인 콘텐츠 */
+  .movie-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 20px 0;
+  }
+  
+  .movie-card {
+    width: 23%;
+    margin-bottom: 20px;
+  }
+  
+  .img-container {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .img-container img {
+    width: 100%;
+    transition: transform 2s ease;
+  }
+  
+  .img-container:hover img {
+    transform: scale(1.4);
+  }
+  
+  .overlay {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 5px 10px;
+    opacity: 0;
+    transition: opacity 0.5s;
+  }
+  
+  .img-container:hover .overlay {
+    opacity: 1;
+  }
+  
+  /* 미디어 쿼리 */
+  @media (max-width: 480px) {
+    .movie-card {
+      width: 100%;
+    }
+  
+    .navigation {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+    }
+  }
+  
+  @media (min-width: 481px) and (max-width: 800px) {
+    .movie-card {
+      width: 50%;
+    }
+  
+    .navigation {
+      flex-direction: column;
+      justify-content: space-between;
+    }
+  }
+
+  @media (min-width: 801px){
+    .movie-card {
+      width: 23%;
+    }
+  
+    .navigation {
+      flex-direction: column;
+      justify-content: space-between;
+    }
+  }
+
+
+/* signup, login */
+/* header */
+.header {
+  text-align: center; 
+}
+
+/* nav */
+nav {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+nav a {
+  margin: 0 10px;
+  color: #007bff;
+}
+
+nav a:hover {
+  text-decoration: underline;
+  color: #4c83e9;
+}
+
+/* form */
+form {
+  width: 400px; 
+  margin: 20px auto; 
+  padding: 20px; 
+  border: 3px solid black; 
+  border-radius: 10px;
+  background-color: #ffffff; 
+}
+
+/* label */
+form label {
+  margin-bottom: 5px;
+  font-size: 15px; 
+}
+
+/* submit button */
+.submit {
+  width: 100px;
+  height: 50px;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px; 
+  border: none; 
+  background-color: #007bff; 
+  color: white;
+}
+.submit:hover {
+  color: #000000;
+}
+
+/* reset button */
+.reset {
+  width: 100px;
+  height: 50px;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px; 
+  border: none; 
+  background-color: #ff3700; 
+  color: white;
+}
+
+.reset:hover {
+  color: #000000;
+}
