@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>인프밍 영화 정보 사이트</title>
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>인프밍 영화 정보 사이트입니다.</h1>
+      <nav>
+        <a href="login.html">로그인</a>
+        <a href="signup.html">회원가입</a>
+      </nav>
+    </header>
+
+    <section class="search-section">
+      <input type="text" placeholder="키워드를 입력하세요.">
+      <button>검색</button>
+    </section>
+
+    <section class="content">
+      <aside class="sort-box">
+        <h3>정렬 기준</h3>
+        <label><input type="radio" name="sort" value="rating-desc"> 평점 내림차순</label><br>
+        <label><input type="radio" name="sort" value="rating-asc"> 평점 오름차순</label><br>
+        <label><input type="radio" name="sort" value="release-desc"> 개봉일 내림차순</label><br>
+        <label><input type="radio" name="sort" value="release-asc"> 개봉일 오름차순</label>
+      </aside>
+
+      <main class="movie-container" id="movie-container">
+        <!-- 영화 정보 출력하는 html 추가될 곳 -->
+      </main>
+    </section>
+  </div>
+
+  <script>
+    let originalData = [];
+    let filteredData = [];
+    let currentIndex = 0;
+    const PAGE_SIZE = 6;
+
+    const container = document.getElementById('movie-container');
+    const sortRadios = document.querySelectorAll('input[name="sort"]');
+    const searchInput = document.querySelector('.search-section input');
+    const searchButton = document.querySelector('.search-section button');
+
+    function renderMovies() {
+      const end = Math.min(currentIndex + PAGE_SIZE, filteredData.length);
+      for (; currentIndex < end; currentIndex++) {
+        const movie = filteredData[currentIndex];
+        const card = document.createElement('div');
+        card.className = 'movie-card';
+        card.innerHTML = `
+          <div class="image-wrapper">
+            <img src="${movie.image}" alt="${movie.title} 포스터">
+            <div class="overlay">
+              <p><strong>줄거리:</strong><br>${movie.description}</p>
+            </div>
+          </div>
+          <h2><a href="/movies/${movie.id}">${movie.title}</a></h2>
+          <p class="release">개봉일: ${movie.release}</p>
+          <p class="rating">평점: ${movie.rating}/10</p>
+        `;
+        container.appendChild(card);
+      }
+    }
+
+    function sortMovies(criteria) {
+      if (!criteria) return;
+      filteredData.sort((a, b) => {
+        if (criteria === 'rating-desc') return b.rating - a.rating;
+        if (criteria === 'rating-asc') return a.rating - b.rating;
+        if (criteria === 'release-desc') return new Date(b.release) - new Date(a.release);
+        if (criteria === 'release-asc') return new Date(a.release) - new Date(b.release);
+      });
+      resetAndRender();
+    }
+
+    function filterMoviesByKeyword(keyword) {
+      keyword = keyword.trim().toLowerCase();
+      if (keyword === '') {
+        filteredData = [...originalData];
+      } else {
+        filteredData = originalData.filter(movie =>
+          movie.title.toLowerCase().includes(keyword) ||
+          movie.description.toLowerCase().includes(keyword)
+        );
+      }
+
+      const selected = document.querySelector('input[name="sort"]:checked');
+      if (selected) sortMovies(selected.value);
+      else resetAndRender();
+    }
+
+    function resetAndRender() {
+      container.innerHTML = '';
+      currentIndex = 0;
+      renderMovies();
+    }
+
+    function handleScroll() {
+      const bottom = window.innerHeight + window.scrollY >= document.body.offsetHeight - 100;
+      if (bottom && currentIndex < filteredData.length) {
+        renderMovies();
+      }
+    }
+
+    // fetch from new API endpoint
+    fetch('/api/movies')
+      .then(res => res.json())
+      .then(data => {
+        originalData = data;
+        filteredData = [...originalData];
+        renderMovies();
+      })
+      .catch(err => console.error("영화 정보를 불러오는 데 실패했습니다.", err));
+
+    sortRadios.forEach(radio => {
+      radio.addEventListener('change', () => {
+        sortMovies(radio.value);
+      });
+    });
+
+    searchButton.addEventListener('click', () => {
+      filterMoviesByKeyword(searchInput.value);
+    });
+
+    window.addEventListener('scroll', handleScroll);
+  </script>
+</body>
+</html>
